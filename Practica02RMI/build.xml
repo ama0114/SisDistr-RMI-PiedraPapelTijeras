@@ -1,1 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
+<project name="Practica02RMI">
+	
+	<description>
+		Sistemas Distribuidos - Practica 2 - Piedra, papel o tijeras implementado con Java RMI.
+	</description>
+	
+	<target name="clean">
+	        <delete dir="build"/>
+		 	<delete dir="doc"/>
+	 </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src/main" destdir="build/classes"/>
+    </target>
+
+    <target name="jar" depends="compile">
+    	<mkdir dir="build/jar"/>
+        <jar destfile="build/jar/Server.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="es.ubu.lsi.server.GameServerDynamic"/>
+            </manifest>
+        </jar>
+    	<jar destfile="build/jar/Client.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="es.ubu.lsi.client.GameClientDynamic"/>
+            </manifest>
+        </jar>
+    </target>
+	
+	<target name="javadoc">
+	   <mkdir dir="doc"/>
+	   <javadoc packagenames="es.ubu.lsi.client, es.ubu.lsi.common, es.ubu.lsi.server"
+	            sourcepath="src/main/java"
+	            destdir="doc"/>
+	</target>
+	
+	<target name="run-server" depends="jar">
+	    <java jar="build/jar/GameServerImpl.jar" fork="true"/>
+	</target>
+	
+	<target name="run-client" depends="jar">
+		<java jar="build/jar/GameClientImpl.jar" fork="true"/>
+	</target>
+</project>

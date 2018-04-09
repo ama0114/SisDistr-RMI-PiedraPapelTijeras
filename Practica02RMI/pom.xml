@@ -22,4 +22,38 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+  	<plugins>
+  		<plugin>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<configuration>
+						<tasks>
+							<copy todir="../Practica02RMI-Web/src/main/webapp">
+								<fileset dir="./target/classes">
+									<exclude name="**/*Dynamic.class" /> 
+								</fileset>
+							</copy>
+						</tasks>
+					</configuration>
+					<goals>
+						<goal>run</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>3.0.2</version>
+			<configuration>
+				<includes>
+					<include>**/*Dynamic.*</include>
+				</includes>
+			</configuration>
+		</plugin>
+  	</plugins>
+  </build>
 </project>
