@@ -1,2 +1,7 @@
 
 *.class
+Practica02RMI/.classpath
+*.properties
+*.MF
+*.component
+*.prefs

@@ -50,7 +50,7 @@
 			<version>3.0.2</version>
 			<configuration>
 				<includes>
-					<include>**/*Dynamic.class</include>
+					<include>**/*Dynamic.*</include>
 				</includes>
 			</configuration>
 		</plugin>

@@ -2,7 +2,7 @@
  * 
  */
 /**
- * @author Miguel Ángel León
+ * @author Miguel Angel Leon
  *
  */
 package es.ubu.lsi.client;

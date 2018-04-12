@@ -9,10 +9,16 @@ import es.ubu.lsi.common.ElementType;
 import es.ubu.lsi.common.GameResult;
 
 /**
- * @author Miguel Ángel León
+ * @author Miguel Angel Leon
  *
  */
 public class GameClientImpl implements GameClient {
+
+	private String nickname;
+	
+	public GameClientImpl(String nickname) {
+		this.nickname = nickname;
+	}
 
 	/* (non-Javadoc)
 	 * @see es.ubu.lsi.client.GameClient#getId()

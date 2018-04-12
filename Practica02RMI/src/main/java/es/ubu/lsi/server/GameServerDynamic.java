@@ -29,7 +29,7 @@ public class GameServerDynamic {
 			// cargador de clases
 			Class<?> serverClass = RMIClassLoader.loadClass(url,
 					"es.ubu.lsi.server.GameServerStarter");
-			// inicia el cliente
+			// inicia el servidor
 			serverClass.newInstance();
 		} catch (Exception e) {
 			System.err.println("Excepcion en arranque del servidor " + e.toString());
