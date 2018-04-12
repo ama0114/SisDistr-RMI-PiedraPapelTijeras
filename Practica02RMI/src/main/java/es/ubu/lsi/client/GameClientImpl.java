@@ -4,6 +4,7 @@
 package es.ubu.lsi.client;
 
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 
 import es.ubu.lsi.common.ElementType;
 import es.ubu.lsi.common.GameResult;
@@ -12,11 +13,17 @@ import es.ubu.lsi.common.GameResult;
  * @author Miguel Angel Leon
  *
  */
-public class GameClientImpl implements GameClient {
+public class GameClientImpl extends UnicastRemoteObject implements GameClient {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String nickname;
 	
-	public GameClientImpl(String nickname) {
+	public GameClientImpl(String nickname) throws RemoteException {
+		super();
 		this.nickname = nickname;
 	}
 

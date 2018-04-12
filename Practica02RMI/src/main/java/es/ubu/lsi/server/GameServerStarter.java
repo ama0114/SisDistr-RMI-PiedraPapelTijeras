@@ -26,7 +26,7 @@ public class GameServerStarter {
 			//Registry registro = LocateRegistry.getRegistry("localhost",23000);
 	    	//registro.bind("gameServer", stub);
 			
-			Naming.bind("gameServer", gameServer);
+			Naming.rebind("gameServer", gameServer);
 			System.out.println("Servidor preparado...");
 			
 		} catch (Exception e) {
