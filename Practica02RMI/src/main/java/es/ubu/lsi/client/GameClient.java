@@ -38,7 +38,7 @@ public interface GameClient extends Remote {
 	/**
 	 * Receives a new message.
 	 * 
-	 * @param msg message
+	 * @param result message
 	 * @throws RemoteException if remote communication has problems
 	 */
 	public abstract void receive(GameResult result) throws RemoteException;

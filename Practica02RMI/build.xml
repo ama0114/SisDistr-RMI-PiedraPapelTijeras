@@ -12,20 +12,12 @@
 
     <target name="compile">
         <mkdir dir="build/classes"/>
-        <javac srcdir="src/main" destdir="build/classes"/>
+        <javac srcdir="src/main/java" destdir="build/classes"/>
     </target>
 
     <target name="jar" depends="compile">
     	<mkdir dir="build/jar"/>
-        <jar destfile="build/jar/Server.jar" basedir="build/classes">
-            <manifest>
-                <attribute name="Main-Class" value="es.ubu.lsi.server.GameServerDynamic"/>
-            </manifest>
-        </jar>
-    	<jar destfile="build/jar/Client.jar" basedir="build/classes">
-            <manifest>
-                <attribute name="Main-Class" value="es.ubu.lsi.client.GameClientDynamic"/>
-            </manifest>
+        <jar destfile="build/jar/Practica02RMI-0.0.1-SNAPSHOT.jar" basedir="build/classes" includes="**/*Dynamic.class">
         </jar>
     </target>
 	
