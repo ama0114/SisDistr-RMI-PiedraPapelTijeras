@@ -17,8 +17,15 @@
 
     <target name="jar" depends="compile">
     	<mkdir dir="build/jar"/>
-        <jar destfile="build/jar/Practica02RMI-0.0.1-SNAPSHOT.jar" basedir="build/classes" includes="**/*Dynamic.class">
+        <jar destfile="build/jar/Practica02RMI-0.0.1-SNAPSHOT.jar" 
+        	basedir="build/classes" 
+        	includes="**/*Dynamic.class">
         </jar>
+    	<copy todir="../Practica02RMI-Web/src/main/webapp">
+			<fileset dir="./build/classes">
+				<exclude name="**/*Dynamic.class" /> 
+			</fileset>
+    	</copy>
     </target>
 	
 	<target name="javadoc">
@@ -26,13 +33,5 @@
 	   <javadoc packagenames="es.ubu.lsi.client, es.ubu.lsi.common, es.ubu.lsi.server"
 	            sourcepath="src/main/java"
 	            destdir="doc"/>
-	</target>
-	
-	<target name="run-server" depends="jar">
-	    <java jar="build/jar/GameServerImpl.jar" fork="true"/>
-	</target>
-	
-	<target name="run-client" depends="jar">
-		<java jar="build/jar/GameClientImpl.jar" fork="true"/>
 	</target>
 </project>
